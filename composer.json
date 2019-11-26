@@ -19,4 +19,12 @@
             "Meloncut\\Trace\\": "src"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0"
+        },
+        "laravel": {
+            "providers": ["Meloncut\\Trace\\TraceProvider"]
+        }
+    }
 }
