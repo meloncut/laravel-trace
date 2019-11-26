@@ -1,0 +1,22 @@
+{
+    "name": "dizzylee/laravel-trace",
+    "description": "laravel trace sdk",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Meloncut",
+            "email": "meloncut@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/support" : ">=5",
+        "openzipkin/zipkin" : ">=1",
+        "monolog/monolog" : ">=1.2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meloncut\\Trace\\": "src"
+        }
+    },
+}
