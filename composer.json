@@ -1,7 +1,8 @@
 {
-    "name": "dizzylee/laravel-trace",
+    "name": "meloncut/laravel-trace",
     "description": "laravel trace sdk",
     "type": "library",
+    "keywords": ["laravel","trace"],
     "authors": [
         {
             "name": "Meloncut",
