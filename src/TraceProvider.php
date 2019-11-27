@@ -22,6 +22,7 @@ class TraceProvider extends ServiceProvider
             if (!isset($config['endpoint'])) return null;
 
             return new Trace(
+                $config['app'],
                 $config['endpoint'],
                 $config['port'] ?? null,
                 $config['ipv4'] ?? null,

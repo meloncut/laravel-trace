@@ -16,13 +16,15 @@ class Trace implements TraceInterface
 {
     private $tracing;
 
-    public function __construct($endpoint, $port = null, $ipv4 = null, $ipv6 = null)
+    public function __construct($appName, $endpoint, $port = 2555, $ipv4 = null, $ipv6 = null)
     {
-        $endpoint = Endpoint::create($endpoint, $ipv4, $ipv6, $port);
+        if (!empty($ipv4))
+            $ipv4 = $_SERVER['SERVER_ADDR'];
+        $endpoint = Endpoint::create($appName, $ipv4, $ipv6, $port);
 
         $logger = new \Monolog\Logger('trace');
         $logger->pushHandler(new \Monolog\Handler\ErrorLogHandler());
-        $reporter = new \Zipkin\Reporters\Http(\Zipkin\Reporters\Http\CurlFactory::create());
+        $reporter = new \Zipkin\Reporters\Http(\Zipkin\Reporters\Http\CurlFactory::create(['endpoint_url' => $endpoint]));
         $sampler = BinarySampler::createAsAlwaysSample();
         $this->tracing = TracingBuilder::create()
             ->havingLocalEndpoint($endpoint)
