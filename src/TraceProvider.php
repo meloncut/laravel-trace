@@ -17,7 +17,7 @@ class TraceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('meloncut-trace',function ()  {
-            $config = Config::get('trace.endpoint');
+            $config = Config::get('trace');
 
             if (!isset($config['endpoint'])) return null;
 

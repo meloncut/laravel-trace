@@ -20,7 +20,7 @@ class Trace implements TraceInterface
     {
         $endpoint = Endpoint::create($endpoint, $ipv4, $ipv6, $port);
 
-        $logger = new \Monolog\Logger('log');
+        $logger = new \Monolog\Logger('trace');
         $logger->pushHandler(new \Monolog\Handler\ErrorLogHandler());
         $reporter = new \Zipkin\Reporters\Http(\Zipkin\Reporters\Http\CurlFactory::create());
         $sampler = BinarySampler::createAsAlwaysSample();
