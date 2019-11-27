@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static next($sign, \Zipkin\Span $span)
  * @method static finish(\Zipkin\Span $span)
  * @method static tag(\Zipkin\Span $span, $tag = 'tag', $context = 'content')
+ * @method static flush();
  */
 class Trace extends Facade
 {

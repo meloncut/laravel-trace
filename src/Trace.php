@@ -62,7 +62,7 @@ class Trace implements TraceInterface
      */
     public function finish(\Zipkin\Span $span)
     {
-        $span->finish(time());
+        $span->finish(\Zipkin\Timestamp\now());
     }
 
     /**
@@ -74,5 +74,15 @@ class Trace implements TraceInterface
     public function tag(\Zipkin\Span $span, $tag = 'tag', $context = 'content')
     {
         $span->tag($tag, $context);
+    }
+
+    /**
+     * end the trace and transport the data to endpoint
+     *
+     * @author <meloncut@outlook.com>
+     */
+    public function flush()
+    {
+        $this->tracing->getTracer()->flush();
     }
 }
